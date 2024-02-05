@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Flask
+instance/
+*.pyc
+*.pyo
+*.env
+
+# Logs
+*.log
+
+# Dependency directories
+lib/
+lib64/
+bin/
+include/
+share/
+
+# Miscellaneous
+*.swp
+.DS_Store
