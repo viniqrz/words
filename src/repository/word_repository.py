@@ -1,5 +1,5 @@
-from repository import Repository
-from word import Word
+from repository.repository import Repository
+from entity.word import Word
 
 class WordRepository(Repository):
     def __init__(self):

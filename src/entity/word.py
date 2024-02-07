@@ -2,11 +2,13 @@ from dataclasses import dataclass
 
 @dataclass
 class Word():
+    id: int
     english: str
     french: str
     spanish: str
     
-    def __init__(self, english, french, spanish):
+    def __init__(self, id: int, english: str, french: str, spanish: str):
+        self.id = id
         self.english = english 
         self.spanish = spanish
         self.french = french

@@ -1,0 +1,8 @@
+POST http://localhost:5000/words HTTP/2.0
+content-type: application/json
+
+{
+    "english": "hello",
+    "spanish": "hola",
+    "french": "bonjour"
+}

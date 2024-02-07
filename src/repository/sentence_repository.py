@@ -1,5 +1,5 @@
-from repository import Repository
-from sentence import Sentence
+from repository.repository import Repository
+from entity.sentence import Sentence
 
 class SentenceRepository(Repository):
     def __init__(self):
