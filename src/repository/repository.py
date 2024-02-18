@@ -1,23 +1,46 @@
 import csv
 from random import randrange
 
+def ilike(value1, value2):
+    return value1.lower().find(value2.lower()) > -1
+
+class Where:
+        def __init__(self, callback):
+            self.callback = callback
+
+        def __call__(self, row):
+            return self.callback(row)
+
 class Repository:
     def __init__(self, file_path, entity):
         self.file_path = file_path
         self.entity = entity
-        
+
     def map_to_entity(self, row):
         return self.entity(**row)
 
-    def find(self):
+    def find(self, take = None, skip = None, where: Where = None):
         with open(self.file_path, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             result = []
             for row in reader:
+                if skip is not None and skip > 0:
+                    skip -= 1
+                    continue
+                
+                if take is not None and len(result) >= take:
+                    break
+                
+                if where is not None:
+                    if not where(row):
+                        continue
+
                 entity = self.map_to_entity(row)
                 result.append(entity)
+
+                
             return result
-        
+
     def count(self):
         with open(self.file_path, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
